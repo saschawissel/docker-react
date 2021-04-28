@@ -1,9 +1,9 @@
 FROM node:alpine
 WORKDIR '/app'
-COPY --chown=node:node package*.json ./
+COPY --chown=node:node package.json .
 RUN npm install
 RUN chown node:node /app/node_modules
-COPY --chown=node:node ./ ./
+COPY --chown=node:node . .
 RUN npm run build
 
 FROM nginx
